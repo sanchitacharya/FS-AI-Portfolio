@@ -28,12 +28,12 @@
       <div class="hero__track" aria-hidden="true"></div>
       <div class="hero__line" aria-hidden="true"></div>
       <div class="wrap hero__content">
-        <p class="hero__eyebrow">Formula Student · Driverless · UHRA software lead</p>
+        <p class="hero__eyebrow">Formula Student · Driverless · UHRA</p>
         <h1>Sanchit Acharya</h1>
         <p class="hero__lede">
           Planning and control for an autonomous Formula Student car —
           acceleration that scored, a rush skidpad that taught hard lessons,
-          and this year leading software toward lidar localization and the full mission set.
+          and a clear path toward lidar localization and the full mission set.
         </p>
         <div class="hero__cta">
           <a class="btn" href="#acceleration">Acceleration work</a>
@@ -208,32 +208,32 @@
 
     <section id="next">
       <div class="wrap">
-        <p class="section__label">04 · This year</p>
-        <span class="badge badge--ok">Software lead · UHRA</span>
+        <p class="section__label">04 · Roadmap</p>
+        <span class="badge badge--ok">UHRA · software</span>
         <h2>What’s next</h2>
         <div class="prose">
           <p>
-            This year I am the software lead. The gap from last season is clear:
-            without solid sensing and localization, clever mission hacks only go so
-            far — especially once cone layouts leave the simulator.
+            Last season showed the ceiling of mission logic without strong sensing
+            and localization: simulation can look convincing, but cone layouts on
+            the real track expose every weak pose estimate.
           </p>
           <p>
-            Next steps are to bring lidar into the loop and build localization from
-            lidar + IMU. I am looking at HKU’s Fast-LIO as a starting point for that
-            odometry / mapping layer, then using a better pose estimate to harden
-            every mission.
+            The plan is to close that gap — bring lidar into the pipeline, fuse it
+            with IMU for robust localization (building on approaches such as HKU
+            Fast-LIO), and use a reliable pose to drive every dynamic mission with
+            the same confidence on asphalt as in simulation.
           </p>
           <p>
-            On the mission side: keep improving acceleration and skidpad, and push
-            Autocross / Sprint plus Trackdrive so the stack can do a single hot lap
-            and a long multi-lap run — not just the straight corridor.
+            In parallel, tighten acceleration and skidpad, then extend the stack to
+            Autocross / Sprint and Trackdrive so the car can handle both a single
+            timed lap and a full multi-lap run.
           </p>
         </div>
         <ul class="points">
-          <li>Role: software lead for UHRA this season.</li>
-          <li>Sensing: use lidar (with IMU) instead of running blind on weak localization.</li>
-          <li>Localization: explore HKU Fast-LIO and fit it to the car’s stack.</li>
-          <li>Missions: optimize acceleration, skidpad, Autocross / Sprint, and Trackdrive.</li>
+          <li>Localization: lidar + IMU, with Fast-LIO as a strong starting point.</li>
+          <li>Perception: put lidar in the loop so the car is not guessing the track.</li>
+          <li>Missions: refine acceleration and skidpad; deliver Autocross / Sprint and Trackdrive.</li>
+          <li>Goal: the same stack that works in sim holds up when the cones move in the real world.</li>
         </ul>
       </div>
     </section>
