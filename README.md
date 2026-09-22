@@ -2,7 +2,7 @@
 
 Personal portfolio site for **Sanchit Acharya**, Software Lead at **UHRA** (University of Hertfordshire Racing Autonomous).
 
-**Live site:** [sanchitacharya.github.io/FS-AI-Portfolio](https://sanchitacharya.github.io/FS-AI-Portfolio/)  
+**Live site:** [sanchitacharya.github.io/FS-AI-Portfolio/projects/fs-ai.html](https://sanchitacharya.github.io/FS-AI-Portfolio/projects/fs-ai.html)  
 **Team:** [uhracingautonomous.netlify.app/team](https://uhracingautonomous.netlify.app/team)
 
 **No proprietary team source code in this repository.**
