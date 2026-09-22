@@ -6,17 +6,16 @@ Public write-up of my Formula Student driverless work (planning & control).
 
 ## Live page
 
-After you enable GitHub Pages, open:
+https://sanchitacharya.github.io/FS-AI-Portfolio/
 
-`https://YOUR_USERNAME.github.io/FS-AI-Portfolio/`
-
-(Replace `YOUR_USERNAME`. If the repo name differs, match it in the URL.)
+(Enable GitHub Pages if that link 404s — see below.)
 
 ## What’s on the page
 
 - What Formula Student AI / driverless missions are
-- **Acceleration** planning & control (worked)
-- **Skidpad** attempt (did not hold on the real car)
+- Acceleration planning & control (scored)
+- Skidpad attempt (rush build; not completed on the real car)
+- Next steps: software lead, lidar + Fast-LIO, full mission set
 - High-level stack only
 
 ## Local preview
@@ -28,15 +27,9 @@ python3 -m http.server 8080
 
 Open http://localhost:8080
 
-## Publish
+## Enable GitHub Pages
 
-```bash
-git init
-git add .
-git commit -m "Add Formula Student AI portfolio page"
-git branch -M main
-git remote add origin git@github.com:YOUR_USERNAME/FS-AI-Portfolio.git
-git push -u origin main
-```
-
-Then: GitHub repo → **Settings** → **Pages** → Deploy from branch **main** / **root**.
+1. Repo → **Settings** → **Pages**
+2. Source: **Deploy from a branch**
+3. Branch: **main** / folder: **/ (root)**
+4. Save — wait ~1 minute, then open the live link above
