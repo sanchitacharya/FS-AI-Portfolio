@@ -447,6 +447,71 @@ section h2 {
   min-height: min(88vh, 48rem);
 }
 
+.about {
+  display: grid;
+  gap: 2.5rem;
+}
+
+@media (min-width: 860px) {
+  .about {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.85fr);
+    align-items: start;
+  }
+}
+
+.about-aside {
+  display: grid;
+  gap: 1rem;
+}
+
+.about-block {
+  padding: 1.15rem 1.2rem;
+  border: 1px solid var(--line);
+  background: var(--bg-elevated);
+}
+
+.about-block__title {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  letter-spacing: 0.03em;
+  margin: 0.15rem 0 0.45rem;
+  line-height: 1.05;
+}
+
+.about-block__body {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.contact-list {
+  list-style: none;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  max-width: 40rem;
+}
+
+.contact-list li {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-top: 1px solid var(--line);
+  align-items: baseline;
+}
+
+.contact-list li:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.contact-list__label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
 .projects-intro {
   margin: 0 0 2rem;
   color: var(--muted);
