@@ -3,7 +3,7 @@
 Public write-up of my work as **Software Lead** with **UHRA** (University of Hertfordshire Racing Autonomous) on Formula Student AI — planning and control for a driverless car.
 
 **Team:** [uhracingautonomous.netlify.app/team](https://uhracingautonomous.netlify.app/team)  
-**Live site:** [sanchitacharya.github.io/FS-AI-Portfolio](https://sanchitacharya.github.io/FS-AI-Portfolio/)  
+**Live site:** [sanchitacharya.github.io/FS-AI-Portfolio/projects/fs-ai.html](https://sanchitacharya.github.io/FS-AI-Portfolio/projects/fs-ai.html)  
 
 **This repository does not contain team source code.**
 
