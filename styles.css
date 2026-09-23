@@ -130,22 +130,6 @@ a:hover {
   to { background-position: 480px 0, 0 0; }
 }
 
-.hero__line {
-  position: absolute;
-  left: 8%;
-  right: 8%;
-  top: 42%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  opacity: 0.55;
-  animation: pulse-line 3.2s ease-in-out infinite;
-}
-
-@keyframes pulse-line {
-  0%, 100% { opacity: 0.25; transform: scaleX(0.92); }
-  50% { opacity: 0.7; transform: scaleX(1); }
-}
-
 .hero__content {
   position: relative;
   z-index: 1;
@@ -686,7 +670,6 @@ section h2 {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .hero__track,
-  .hero__line,
   .diagram__car {
     animation: none;
   }
