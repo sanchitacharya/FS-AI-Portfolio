@@ -1,6 +1,6 @@
 # Formula Student AI — portfolio
 
-Public write-up of my work as **Software Lead** with **UHRA** (University of Hertfordshire Racing Autonomous) on Formula Student AI — planning and control for a driverless car.
+Public write-up of my work as a **robotics engineer** — **Software Lead** at **UHRA** and part of **STRIDE** — while studying **BEng (Hons) Robotics and Artificial Intelligence** at the University of Hertfordshire.
 
 **Team:** [uhracingautonomous.netlify.app/team](https://uhracingautonomous.netlify.app/team)  
 **Live site:** [sanchitacharya.github.io/FS-AI-Portfolio/projects/fs-ai.html](https://sanchitacharya.github.io/FS-AI-Portfolio/projects/fs-ai.html)  
