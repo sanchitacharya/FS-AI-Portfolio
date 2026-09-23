@@ -1,6 +1,6 @@
 # Formula Student AI — portfolio
 
-Public write-up of my work as a **robotics engineer** — **Software Lead** at **UHRA** and part of **STRIDE** — while studying **BEng (Hons) Robotics and Artificial Intelligence** at the University of Hertfordshire.
+Public write-up of my work as a **robotics engineering student** — **Software Lead** at **UHRA** and part of **STRIDE** — while studying **BEng (Hons) Robotics and Artificial Intelligence** at the University of Hertfordshire.
 
 **Team:** [uhracingautonomous.netlify.app/team](https://uhracingautonomous.netlify.app/team)  
 **Live site:** [sanchitacharya.github.io/FS-AI-Portfolio/projects/fs-ai.html](https://sanchitacharya.github.io/FS-AI-Portfolio/projects/fs-ai.html)  
