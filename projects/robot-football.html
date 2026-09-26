@@ -62,23 +62,20 @@
     <section id="tracking">
       <div class="wrap">
         <p class="section__label">02 · Project</p>
-        <span class="badge badge--ok">Simulation + real robot</span>
+        <span class="badge badge--ok">Phase 1 · Simulation + real robot</span>
         <h2>Multi-object tracking</h2>
         <div class="prose">
           <p>
-            A camera only gives single-frame snapshots. Detections flicker, robots
-            block each other, and a robot that drops out for a few frames should
-            not come back as a “new” robot. The goal is a steady picture of the
-            game: every robot keeps the same ID, has a position and velocity in
-            field coordinates, and the ball is placed on the same map.
+            This is the first phase of STRIDE’s visual localisation project:
+            building a ground-truth tracking system. Static cameras placed around
+            the field are calibrated to the pitch and track the robots and the
+            ball, giving their positions in field coordinates over time.
           </p>
           <p>
-            Every detection goes into one shared field frame. Each robot gets its
-            own Kalman filter track, so position and velocity stay smooth and it
-            can be predicted through short gaps. New detections are matched to
-            existing tracks by how likely they are given each track’s uncertainty,
-            not just by distance. Tracks that go unseen for too long are dropped,
-            and new robots start a track automatically.
+            These positions are used only during development, to train and
+            evaluate the robot’s own localisation. In a match the robot localises
+            with just its onboard camera and motion, so the final system needs no
+            external setup.
           </p>
         </div>
 
@@ -105,10 +102,10 @@
         </ul>
 
         <ul class="points">
-          <li>Problem: noisy, flickering detections and occlusions make identities jump between frames.</li>
-          <li>Goal: stable IDs, smooth positions and velocities, all in one field frame.</li>
-          <li>Sim vs real: simulation positions are clean; real depth is noisy and sometimes missing, and the field has to be anchored from what the camera sees.</li>
-          <li>Status: working in simulation with full visualisation; real-robot version running on camera detections.</li>
+          <li>What: track every robot and the ball from static cameras, in field coordinates, with stable IDs.</li>
+          <li>Why: accurate ground truth to train and evaluate the robot’s onboard localisation.</li>
+          <li>Now: basic concept working in simulation; real version running on OAK-D detections.</li>
+          <li>Next: track multiple robots on the real field, then use this system as the teacher for learning-based localisation on the robot.</li>
         </ul>
       </div>
 
