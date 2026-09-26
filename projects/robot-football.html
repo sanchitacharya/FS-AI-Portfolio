@@ -86,10 +86,10 @@
           <li>
             <strong>Simulation</strong>
             <span>
-              Uses robot and ball positions from the simulator, so the tracker
-              can be tuned without perception errors getting in the way. The RViz
-              view shows each track’s ID, velocity arrow, uncertainty ellipses,
-              a short-horizon predicted position, and the ball.
+              The basic concept: tracking one robot and one ball. The simulated
+              camera can’t give 3D positions like the real OAK-D, so positions
+              come from the Webots supervisor, the way the world was set up.
+              It shows how the tracker works before moving to real detections.
             </span>
           </li>
           <li>
@@ -110,6 +110,25 @@
           <li>Sim vs real: simulation positions are clean; real depth is noisy and sometimes missing, and the field has to be anchored from what the camera sees.</li>
           <li>Status: working in simulation with full visualisation; real-robot version running on camera detections.</li>
         </ul>
+      </div>
+
+      <div class="wrap media-block">
+        <p class="section__label">Footage</p>
+        <h3 class="media-block__title">Tracking in simulation</h3>
+        <div class="media-grid">
+          <figure class="media-card">
+            <p class="diagram__caption">Simulation · basic concept</p>
+            <video controls playsinline preload="metadata" poster="">
+              <source src="/FS-AI-Portfolio/videos/stride-tracking-sim.mp4" type="video/mp4" />
+              Your browser can’t play this MP4. Put the file at
+              <code>videos/stride-tracking-sim.mp4</code>.
+            </video>
+            <figcaption>
+              One robot and one ball, with positions from the Webots supervisor
+              rather than the camera. Shows the idea and how the tracker works.
+            </figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
