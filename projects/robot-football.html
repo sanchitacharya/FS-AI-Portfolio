@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>STRIDE — Sanchit Acharya</title>
-  <meta name="description" content="STRIDE robot football — odometry-based localization. Part of Sanchit Acharya’s portfolio." />
+  <meta name="description" content="STRIDE humanoid robot football — multi-object tracking (simulation and real robot) and odometry-based localization with visual landmarks. Part of Sanchit Acharya’s portfolio." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -16,8 +16,9 @@
     <a class="nav__brand" href="./">Sanchit Acharya</a>
     <ul class="nav__links">
       <li><a href="./">Portfolio</a></li>
+      <li><a href="projects/robot-football.html#tracking">Tracking</a></li>
+      <li><a href="projects/robot-football.html#localization">Localization</a></li>
       <li><a href="projects/fs-ai.html">Formula Student AI</a></li>
-      <li><a href="https://github.com/sanchitacharya" target="_blank" rel="noopener noreferrer">GitHub</a></li>
     </ul>
   </header>
 
@@ -25,40 +26,142 @@
     <section class="hero">
       <div class="hero__track" aria-hidden="true"></div>
       <div class="wrap hero__content">
-        <p class="hero__eyebrow">Project · Robot football</p>
+        <p class="hero__eyebrow">Project · Humanoid robot football</p>
         <h1>STRIDE</h1>
         <p class="hero__lede">
-          University robot football team. My focus so far is odometry-based
-          localization — keeping a reliable estimate of where the robot is on
-          the pitch as it moves.
+          Perception and localization for humanoid football robots — tracking
+          other robots and the ball, and working out where our own robot is on
+          the pitch.
         </p>
         <div class="hero__cta">
+          <a class="btn" href="projects/robot-football.html#tracking">Multi-object tracking</a>
           <a class="btn btn--ghost" href="./">All projects</a>
         </div>
       </div>
     </section>
 
-    <section>
+    <section id="context">
       <div class="wrap">
-        <p class="section__label">Overview</p>
-        <h2>In progress</h2>
+        <p class="section__label">01 · Context</p>
+        <h2>What is STRIDE?</h2>
         <div class="prose">
           <p>
-            STRIDE is the robot football side of my student engineering work,
-            alongside UHRA. I’m contributing on odometry-based localization;
-            a fuller write-up, methods, and footage will go here as the project
-            develops.
+            STRIDE is a university robot football team working with ROBOTIS OP3
+            humanoid robots. To play, a robot has to answer two questions all the
+            time: where is everything else on the pitch, and where am I?
           </p>
           <p>
-            For a completed case-study style page, see
-            <a href="projects/fs-ai.html">Formula Student AI</a>
-            (UHRA).
+            My work covers both. Each piece is built and tested in simulation
+            first, then taken to the real robot and its camera.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tracking">
+      <div class="wrap">
+        <p class="section__label">02 · Project</p>
+        <span class="badge badge--ok">Simulation + real robot</span>
+        <h2>Multi-object tracking</h2>
+        <div class="prose">
+          <p>
+            A camera only gives single-frame snapshots. Detections flicker, robots
+            block each other, and a robot that drops out for a few frames should
+            not come back as a “new” robot. The goal is a steady picture of the
+            game: every robot keeps the same ID, has a position and velocity in
+            field coordinates, and the ball is placed on the same map.
+          </p>
+          <p>
+            Every detection goes into one shared field frame. Each robot gets its
+            own Kalman filter track, so position and velocity stay smooth and it
+            can be predicted through short gaps. New detections are matched to
+            existing tracks by how likely they are given each track’s uncertainty,
+            not just by distance. Tracks that go unseen for too long are dropped,
+            and new robots start a track automatically.
+          </p>
+        </div>
+
+        <ul class="missions">
+          <li>
+            <strong>Simulation</strong>
+            <span>
+              Uses robot and ball positions from the simulator, so the tracker
+              can be tuned without perception errors getting in the way. The RViz
+              view shows each track’s ID, velocity arrow, uncertainty ellipses,
+              a short-horizon predicted position, and the ball.
+            </span>
+          </li>
+          <li>
+            <strong>Real robot</strong>
+            <span>
+              Runs on live detections from an OAK-D depth camera: robots, the
+              ball, and field line intersections, each with a 3D position. The
+              field frame is anchored once an X-shaped line intersection is seen.
+              Robots and the ball are then placed in field coordinates and fed
+              into the same tracker. Detections with no valid depth are ignored.
+            </span>
+          </li>
+        </ul>
+
+        <ul class="points">
+          <li>Problem: noisy, flickering detections and occlusions make identities jump between frames.</li>
+          <li>Goal: stable IDs, smooth positions and velocities, all in one field frame.</li>
+          <li>Sim vs real: simulation positions are clean; real depth is noisy and sometimes missing, and the field has to be anchored from what the camera sees.</li>
+          <li>Status: working in simulation with full visualisation; real-robot version running on camera detections.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="localization">
+      <div class="wrap">
+        <p class="section__label">03 · Project</p>
+        <span class="badge badge--ok">First version · simulation</span>
+        <h2>Odometry-based localization with visual landmarks</h2>
+        <div class="prose">
+          <p>
+            A walking humanoid is hard to localize. Leg odometry drifts, the
+            camera shakes with every step, and a football pitch is symmetric, so
+            the two ends look almost the same. Without a reliable pose, you can’t
+            really use the ball position or any tracked robot.
+          </p>
+          <p>
+            The approach combines odometry with vision. The IMU gives a continuous
+            heading, and goalposts act as visual landmarks at known positions on
+            the field. The first goalpost the robot sees sets up the map. After
+            that, heading is used to tell whether the goal in view is ours or the
+            opponent’s, which gets around the symmetry problem. From that, the
+            robot’s position is solved relative to the centre of the pitch. Once
+            the robot is localized, the ball is placed on the same field map.
           </p>
         </div>
         <ul class="points">
-          <li>Team: STRIDE — robot football.</li>
-          <li>Current focus: odometry-based localization on the pitch.</li>
-          <li>Status: more detail and media coming.</li>
+          <li>Problem: odometry drift on a walking robot, plus a symmetric pitch where the two ends look alike.</li>
+          <li>Approach: IMU heading for odometry, with goalposts as known visual landmarks to correct position.</li>
+          <li>Output: robot pose and ball position in pitch coordinates, shown live on an RViz field map.</li>
+          <li>Next: move to the real robot, add more field features such as line intersections, and hold the pose when no goalpost is in view.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="stack">
+      <div class="wrap">
+        <p class="section__label">04 · Tools</p>
+        <h2>Stack (high level)</h2>
+        <div class="prose">
+          <p>
+            Both projects are ROS 2 nodes in C++. Simulation is used to iterate
+            quickly, and the real OP3 robots with an OAK-D camera are the final test.
+          </p>
+        </div>
+        <ul class="tags">
+          <li>ROS 2</li>
+          <li>C++ · Eigen</li>
+          <li>Kalman filtering</li>
+          <li>Data association</li>
+          <li>IMU · odometry</li>
+          <li>OAK-D depth camera</li>
+          <li>Webots simulation</li>
+          <li>RViz · TF2</li>
         </ul>
       </div>
     </section>
