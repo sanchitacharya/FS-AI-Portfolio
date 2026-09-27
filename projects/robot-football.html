@@ -66,46 +66,21 @@
         <h2>Multi-object tracking</h2>
         <div class="prose">
           <p>
-            This is the first phase of STRIDE’s visual localisation project:
-            building a ground-truth tracking system. Static cameras placed around
-            the field are calibrated to the pitch and track the robots and the
-            ball, giving their positions in field coordinates over time.
-          </p>
-          <p>
-            These positions are used only during development, to train and
-            evaluate the robot’s own localisation. In a match the robot localises
-            with just its onboard camera and motion, so the final system needs no
-            external setup.
+            This is the first phase of STRIDE’s visual localisation project: a
+            ground-truth tracking system. Static cameras around the field track
+            the robots and the ball in field coordinates. These positions are used
+            only during development, to train and test the robot’s own
+            localisation.
           </p>
         </div>
 
-        <ul class="missions">
-          <li>
-            <strong>Simulation</strong>
-            <span>
-              The basic concept: tracking one robot and one ball. The simulated
-              camera can’t give 3D positions like the real OAK-D, so positions
-              come from the Webots supervisor, the way the world was set up.
-              It shows how the tracker works before moving to real detections.
-            </span>
-          </li>
-          <li>
-            <strong>Real robot</strong>
-            <span>
-              Runs on live detections from an OAK-D depth camera: robots, the
-              ball, and field line intersections, each with a 3D position. The
-              field frame is anchored once an X-shaped line intersection is seen.
-              Robots and the ball are then placed in field coordinates and fed
-              into the same tracker. Detections with no valid depth are ignored.
-            </span>
-          </li>
-        </ul>
-
         <ul class="points">
-          <li>What: track every robot and the ball from static cameras, in field coordinates, with stable IDs.</li>
-          <li>Why: accurate ground truth to train and evaluate the robot’s onboard localisation.</li>
-          <li>Now: basic concept working in simulation; real version running on OAK-D detections.</li>
-          <li>Next: track multiple robots on the real field, then use this system as the teacher for learning-based localisation on the robot.</li>
+          <li>Done: built the tracker. Every robot and the ball keeps a stable ID, with position and velocity in field coordinates.</li>
+          <li>Done: a very simple simulation version for testing: one robot and one ball. The simulated camera doesn’t give 3D positions like the OAK-D, so positions come from the Webots supervisor.</li>
+          <li>Done: real version built on the OAK-D camera, which gives 3D positions of robots and the ball. The field is anchored on an X-shaped line intersection.</li>
+          <li>Next: record the real version on the field. It should work; it just hasn’t been filmed yet.</li>
+          <li>Next: track multiple robots at once on the real field.</li>
+          <li>Next: use it as ground truth to train and test the robot’s own localisation (Phase 2).</li>
         </ul>
       </div>
 
@@ -121,8 +96,8 @@
               <code>videos/stride-tracking-sim.mp4</code>.
             </video>
             <figcaption>
-              One robot and one ball, with positions from the Webots supervisor
-              rather than the camera. Shows the idea and how the tracker works.
+              Simple test setup: one robot and one ball, with positions from the
+              Webots supervisor. Real-field footage coming soon.
             </figcaption>
           </figure>
         </div>
@@ -137,21 +112,37 @@
         <div class="prose">
           <p>
             This is the second phase of STRIDE’s visual localisation project: the
-            robot estimates its own position on the field using only its onboard
-            camera and motion information.
-          </p>
-          <p>
-            The first version runs in Webots. The IMU gives the robot’s heading,
-            and goalposts act as landmarks at known positions on the pitch. From
-            these, the robot works out where it is relative to the centre of the
-            field and places the ball on the same map.
+            robot works out its own position on the field using its onboard camera
+            and motion.
           </p>
         </div>
         <ul class="points">
-          <li>What: estimate the robot’s position on the field from its own camera and motion.</li>
-          <li>Now: first version working in simulation, using IMU heading and goalposts.</li>
-          <li>Next: train a learning-based model that maps camera images and short motion histories to field coordinates, first in Webots and then on real data, using the Phase 1 tracker as ground truth.</li>
+          <li>Done: the robot localises itself whenever it sees an anchor point (a goalpost at a known position), using the IMU for heading.</li>
+          <li>Done: the ball is placed on the same field map. When the camera loses sight of it, it is dimmed and its last-seen position is kept.</li>
+          <li>Done: goalposts are the only anchor point for now, which is enough in simulation.</li>
+          <li>Next: use visual SLAM to keep track of position when no anchor point is in view.</li>
+          <li>Next: add more anchor points on the real field.</li>
+          <li>Next: detect and track other robots, and mark them as teammate or opponent.</li>
         </ul>
+      </div>
+
+      <div class="wrap media-block">
+        <p class="section__label">Footage</p>
+        <h3 class="media-block__title">Localization in simulation</h3>
+        <div class="media-grid">
+          <figure class="media-card">
+            <p class="diagram__caption">Simulation · first version</p>
+            <video controls playsinline preload="metadata" poster="">
+              <source src="/FS-AI-Portfolio/videos/stride-localization-sim.mp4" type="video/mp4" />
+              Your browser can’t play this MP4. Put the file at
+              <code>videos/stride-localization-sim.mp4</code>.
+            </video>
+            <figcaption>
+              The robot localises when it sees a goalpost. The ball dims when out
+              of view and stays at its last-seen position.
+            </figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
