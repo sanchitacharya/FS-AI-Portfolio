@@ -132,30 +132,25 @@
     <section id="localization">
       <div class="wrap">
         <p class="section__label">03 · Project</p>
-        <span class="badge badge--ok">First version · simulation</span>
+        <span class="badge badge--ok">Phase 2 · First version in simulation</span>
         <h2>Odometry-based localization with visual landmarks</h2>
         <div class="prose">
           <p>
-            A walking humanoid is hard to localize. Leg odometry drifts, the
-            camera shakes with every step, and a football pitch is symmetric, so
-            the two ends look almost the same. Without a reliable pose, you can’t
-            really use the ball position or any tracked robot.
+            This is the second phase of STRIDE’s visual localisation project: the
+            robot estimates its own position on the field using only its onboard
+            camera and motion information.
           </p>
           <p>
-            The approach combines odometry with vision. The IMU gives a continuous
-            heading, and goalposts act as visual landmarks at known positions on
-            the field. The first goalpost the robot sees sets up the map. After
-            that, heading is used to tell whether the goal in view is ours or the
-            opponent’s, which gets around the symmetry problem. From that, the
-            robot’s position is solved relative to the centre of the pitch. Once
-            the robot is localized, the ball is placed on the same field map.
+            The first version runs in Webots. The IMU gives the robot’s heading,
+            and goalposts act as landmarks at known positions on the pitch. From
+            these, the robot works out where it is relative to the centre of the
+            field and places the ball on the same map.
           </p>
         </div>
         <ul class="points">
-          <li>Problem: odometry drift on a walking robot, plus a symmetric pitch where the two ends look alike.</li>
-          <li>Approach: IMU heading for odometry, with goalposts as known visual landmarks to correct position.</li>
-          <li>Output: robot pose and ball position in pitch coordinates, shown live on an RViz field map.</li>
-          <li>Next: move to the real robot, add more field features such as line intersections, and hold the pose when no goalpost is in view.</li>
+          <li>What: estimate the robot’s position on the field from its own camera and motion.</li>
+          <li>Now: first version working in simulation, using IMU heading and goalposts.</li>
+          <li>Next: train a learning-based model that maps camera images and short motion histories to field coordinates, first in Webots and then on real data, using the Phase 1 tracker as ground truth.</li>
         </ul>
       </div>
     </section>
