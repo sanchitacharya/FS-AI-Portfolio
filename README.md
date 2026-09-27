@@ -4,6 +4,7 @@ Public write-up of my work as a **robotics engineering student** — **Software 
 
 **Team:** [uhracingautonomous.netlify.app/team](https://uhracingautonomous.netlify.app/team)  
 **Live site:** [sanchitacharya.github.io/FS-AI-Portfolio/projects/fs-ai.html](https://sanchitacharya.github.io/FS-AI-Portfolio/projects/fs-ai.html)  
+**CV:** [Sanchit_Acharya_CV.pdf](https://sanchitacharya.github.io/FS-AI-Portfolio/Sanchit_Acharya_CV.pdf)  
 
 **This repository does not contain team source code.**
 
