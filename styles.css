@@ -584,6 +584,84 @@ section h2 {
   }
 }
 
+.subhead {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  letter-spacing: 0.04em;
+  margin: 3rem 0 1.25rem;
+}
+
+/* —— Experience —— */
+.timeline {
+  list-style: none;
+  margin: 1.75rem 0 0;
+  padding: 0;
+}
+
+.timeline__item {
+  display: grid;
+  gap: 0.5rem 2rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.timeline__item:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+@media (min-width: 800px) {
+  .timeline__item {
+    grid-template-columns: 11rem 1fr;
+  }
+}
+
+.timeline__date {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.timeline__role {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.7rem;
+  letter-spacing: 0.03em;
+  line-height: 1.05;
+  margin: 0;
+}
+
+.timeline__org {
+  margin: 0.3rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-dim);
+}
+
+.timeline__sub {
+  margin: 0.5rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.timeline__item .points {
+  margin-top: 0.85rem;
+}
+
+/* —— Skills —— */
+.skill-list {
+  max-width: 48rem;
+}
+
+.skill-list li {
+  grid-template-columns: 9.5rem 1fr;
+}
+
 /* —— Media (videos) —— */
 .media-block {
   padding-top: 0.5rem;

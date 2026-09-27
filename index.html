@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/FS-AI-Portfolio/styles.css?v=12" />
+  <link rel="stylesheet" href="/FS-AI-Portfolio/styles.css?v=13" />
   <base href="/FS-AI-Portfolio/" />
 </head>
 <body>
@@ -16,7 +16,9 @@
     <a class="nav__brand" href="./">Sanchit Acharya</a>
     <ul class="nav__links">
       <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="https://www.linkedin.com/in/acharyasanchit/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
     </ul>
@@ -94,9 +96,55 @@
       </div>
     </section>
 
+    <section id="experience">
+      <div class="wrap">
+        <p class="section__label">02 · Experience</p>
+        <h2>Experience</h2>
+        <ul class="timeline">
+          <li class="timeline__item">
+            <p class="timeline__date">Feb 2026 – Present</p>
+            <div>
+              <p class="timeline__role">Software Lead</p>
+              <p class="timeline__org">UH Racing Autonomous (UHRA) · Hatfield, UK</p>
+              <p class="timeline__sub">Software Lead since Sept 2026 · software team member from Feb 2026</p>
+              <ul class="points">
+              <li>Leading the software team for the 2026 Formula Student AI season.</li>
+              <li>Built acceleration planning and control. UHRA scored its first ever acceleration point.</li>
+              <li>Built a skidpad mission in about six hours in simulation.</li>
+              <li>Next: lidar + IMU localization and the full mission set.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="timeline__item">
+            <p class="timeline__date">Nov 2025 – Present</p>
+            <div>
+              <p class="timeline__role">Robotics Engineer</p>
+              <p class="timeline__org">STRIDE · University of Hertfordshire</p>
+              <ul class="points">
+                <li>Multi-object tracking of robots and the ball, in simulation and on an OAK-D camera.</li>
+                <li>Odometry-based localization with visual landmarks for ROBOTIS OP3 humanoids in Webots.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="timeline__item">
+            <p class="timeline__date">Jun 2024 – Feb 2025</p>
+            <div>
+              <p class="timeline__role">R&amp;D Intern</p>
+              <p class="timeline__org">Robotics Association of Nepal · Lalitpur, Nepal</p>
+              <ul class="points">
+                <li>Worked on robotics and applied AI projects: drone-based afforestation, banana fibre production, and object-detection systems.</li>
+                <li>Helped run major events, including the International AI &amp; Robotics Conference and National Youth Council programmes: logistics, technical setup, and participant coordination.</li>
+                <li>Delivered workshops in drone simulation, 3D printing, and basic robotics, and mentored students in outreach including Girls in Robotics &amp; AI.</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
     <section id="projects">
       <div class="wrap">
-        <p class="section__label">02 · Work</p>
+        <p class="section__label">03 · Work</p>
         <h2>Projects</h2>
         <p class="prose projects-intro">
           Each project opens into its own page with more context, footage, and next steps.
@@ -130,20 +178,62 @@
           </a>
         </div>
 
-        <ul class="tags" style="margin-top: 2.5rem">
-          <li>ROS 2</li>
-          <li>Python</li>
-          <li>Planning &amp; control</li>
-          <li>Odometry / localization</li>
-          <li>Simulation</li>
-          <li>Robotics</li>
+        <h3 class="subhead">Smaller projects</h3>
+        <div class="project-list">
+          <a class="project-link" href="https://github.com/sanchitacharya/pid_line_follower" target="_blank" rel="noopener noreferrer">
+            <span class="project-link__meta">
+              <span class="project-link__tag">University coursework</span>
+              <span class="project-link__status">GitHub</span>
+            </span>
+            <span class="project-link__title">PID Line Follower</span>
+            <span class="project-link__desc">
+              A Thymio robot that follows a line with a PID controller, stops for
+              obstacles ahead, and turns to find the line again when it loses it.
+              Tuned over 15+ test runs: 20% less motion jitter and 30% smoother
+              cornering.
+            </span>
+            <span class="project-link__cta">View code on GitHub →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <p class="section__label">04 · Skills</p>
+        <h2>Skills</h2>
+        <ul class="contact-list skill-list">
+          <li>
+            <span class="contact-list__label">Programming</span>
+            <span>Python, C++</span>
+          </li>
+          <li>
+            <span class="contact-list__label">Robotics</span>
+            <span>ROS 2 (Humble, Jazzy), Gazebo, Webots, RViz, kinematics</span>
+          </li>
+          <li>
+            <span class="contact-list__label">Autonomy</span>
+            <span>Planning &amp; control, localization, Kalman filtering, multi-object tracking</span>
+          </li>
+          <li>
+            <span class="contact-list__label">CAD &amp; fabrication</span>
+            <span>Fusion 360, 3D printing, DesignSpark PCB</span>
+          </li>
+          <li>
+            <span class="contact-list__label">Drones</span>
+            <span>Building, configuring, and flying DIY drones (QGroundControl, Mission Planner)</span>
+          </li>
+          <li>
+            <span class="contact-list__label">Tools</span>
+            <span>Linux, Git, Docker</span>
+          </li>
         </ul>
       </div>
     </section>
 
     <section id="contact">
       <div class="wrap">
-        <p class="section__label">03 · Contact</p>
+        <p class="section__label">05 · Contact</p>
         <h2>Get in touch</h2>
         <div class="prose">
           <p>
